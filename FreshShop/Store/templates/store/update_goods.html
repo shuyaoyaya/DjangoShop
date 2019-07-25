@@ -1,0 +1,63 @@
+{% extends "store/base.html"%}
+
+{% block title %}
+    {{ goods_data.goods_name }}修改
+{% endblock %}
+
+{% block content %}
+    <form class="form">
+        <table class="table">
+            <tr>
+                <td rowspan="3">
+                    <img style="width: 200px;height: 200px;" src="/static/{{ goods_data.goods_image }}">
+                     <input type="file" name="goods_image">
+                </td>
+                <th>
+                    商品名称
+                </th>
+                <td colspan="3">
+                    <input type="text" name="goods_name" value="{{ goods_data.goods_name }}" >
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    商品价格
+                </th>
+                <td>
+                    <input type="text" name="goods_price" value="{{ goods_data.goods_price }}" >
+                </td>
+
+                <th>
+                    商品库存
+                </th>
+                <td>
+                    <input type="text" name="goods_number" value="{{ goods_data.goods_number }}" >
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    生产日期
+                </th>
+                <td>
+                    <input type="text" name="goods_date" value="{{ goods_data.goods_date }}" >
+                </td>
+
+                <th>
+                    保质期
+                </th>
+                <td>
+                    <input type="text" name="goods_safeDate" value="{{ goods_data.goods_safeDate }}" >
+                </td>
+            </tr>
+            <tr>
+                <th colspan="5" style="text-align: center;">商品描述</th>
+            </tr>
+            </tr>
+                <td>
+                <textarea name="goods_description">{{ goods_data.goods_description }}</textarea>
+                </td>
+            </tr>
+        </table>
+        <a class="btn btn-primary btn-block" href="/update_goods/{{ goods_data.id }}">保存修改</a>
+    </form>
+{% endblock %}

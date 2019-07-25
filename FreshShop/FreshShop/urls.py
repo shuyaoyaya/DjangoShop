@@ -19,4 +19,6 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Store/',include('Store.urls')),
+    path('Buyer/', include('Buyer.urls')),
+    path('ckedior/',include('ckeditor_uploader.urls'))
 ]

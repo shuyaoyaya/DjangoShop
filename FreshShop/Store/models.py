@@ -48,6 +48,8 @@ class Goods(models.Model):
 
     goods_safeDate = models.IntegerField(verbose_name="保质期")
 
+    goods_under = models.IntegerField(verbose_name='商品状态',default=1)#下架
+
     store_id = models.ManyToManyField(to=Store, verbose_name="商品店铺")
 
 
