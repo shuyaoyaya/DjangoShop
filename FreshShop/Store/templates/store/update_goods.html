@@ -5,13 +5,14 @@
 {% endblock %}
 
 {% block content %}
-    <form class="form">
+    <form class="form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
         <table class="table">
             <tr>
                 <td rowspan="3">
                     <img style="width: 200px;height: 200px;" src="/static/{{ goods_data.goods_image }}">
-                     <input type="file" name="goods_image">
-                </td>
+                     <input class="form-control form-control-user" type="file" name="goods_image">
+                 </td>
                 <th>
                     商品名称
                 </th>
@@ -58,6 +59,9 @@
                 </td>
             </tr>
         </table>
-        <a class="btn btn-primary btn-block" href="/update_goods/{{ goods_data.id }}">保存修改</a>
     </form>
+    <script src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("goods_description",{uiColor:"#9AB8F3"})
+    </script>
 {% endblock %}
